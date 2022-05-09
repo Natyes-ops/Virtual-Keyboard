@@ -30,7 +30,16 @@ textarea {
     border: 1px solid #000;
     transition: background .3s, border .3s, color .3s, border-radius .3s;
 }
-
+body {
+    text-align: center;
+}
+.title {
+    padding: 10px;
+    font-weight: 700;
+}
+.descr {
+    padding: 10px;
+}
 .key:hover{
     background: red;
     color: #fff;

@@ -20,9 +20,11 @@ class Keys {
     }
 } 
 */
+document.body.innerHTML += "<div class='title'>RSS Виртуальная клавиатура</div><div class='descr'>Клавиатура создана в операционной системе Window<br>Для переключения языка комбинация: левыe ctrl + alt</div>";
 container.classList.add("keyboard");
 container.append(text);
 document.body.append(container);
+
 
 for (let i = 1; i <= 5; i++) {
     let line = document.createElement("div");
