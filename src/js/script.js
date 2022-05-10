@@ -58,9 +58,8 @@ keys.forEach(item => {
     </div>`;
 });
 
-container.addEventListener("click", (e) => {
+container.addEventListener("mousedown", (e) => {
     if ((e.target && e.target.matches("span"))) {
-        console.log(e.target.textContent);
         if ((e.target.textContent == "CapsLock" || e.target.textContent == "Shift" || e.target.textContent == "Control" || e.target.textContent == "Alt" || e.target.textContent == "OS" || e.target.textContent == "Backspace" || e.target.textContent == "Delete")) {
             text.value += "";
         } else if (e.target.textContent == "Tab") {
@@ -79,8 +78,15 @@ container.addEventListener("click", (e) => {
         } else {
             text.value += e.target.textContent;
         }
+        e.target.classList.add("active");
     }
 });
+container.addEventListener("mouseup", (e) => {
+    if ((e.target && e.target.matches("span"))) {
+        e.target.classList.remove("active");
+    }
+});
+
 let key = document.querySelectorAll(".key");
 let keyRu = document.querySelectorAll(".ru");
 let keyEng = document.querySelectorAll(".eng");
@@ -91,7 +97,6 @@ let keyShiftEng = document.querySelectorAll(".eng .shiftKey");
 let CapsLock = document.querySelector(".key.CapsLock");
 
 window.addEventListener("keydown", (e) => {
-    console.log(e.key);
     key.forEach((item, i) => {
         if (e.ctrlKey && e.altKey && keyEng[i].classList.contains("hidden")) {
             keyRu[i].classList.add("hidden");
